@@ -3,7 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malik Bess-event</title>
+
+<!-- 
+═══════════════════════════════════════════════════════════════════
+    🎯 VARIABLES À MODIFIER - Changez uniquement ces valeurs
+═══════════════════════════════════════════════════════════════════
+-->
+
+<script>
+// 👤 INFORMATIONS PERSONNELLES
+const CONFIG = {
+    nom: "Malik",                           // ← Changez le nom ici
+    metier: "DJ",                           // ← Changez le métier ici
+    email: "malik@bess-event.fr",           // ← Changez l'email ici
+    telephone: "06 65 19 56 96",            // ← Changez le téléphone ici
+    
+    // 🖼️ IMAGE (URL complète)
+    imageUrl: "https://raw.githubusercontent.com/luboys1/malik-bessevent/main/main%20/avatar.png",
+    
+    // 🔗 LIENS RÉSEAUX SOCIAUX
+    linkedinUrl: "https://www.linkedin.com/in/malik-mechta-a01727296/",
+    instagramUrl: "https://www.instagram.com/malik_m.u.s.i.k/",
+    siteWebUrl: "https://www.bess-event.fr",
+    
+    // 🎨 TITRE DE LA PAGE
+    titreOnglet: "Malik Bess-event"         // ← Titre qui apparaît dans l'onglet du navigateur
+};
+</script>
+
+<!-- 
+═══════════════════════════════════════════════════════════════════
+    ⚠️ NE MODIFIEZ RIEN EN DESSOUS DE CETTE LIGNE
+═══════════════════════════════════════════════════════════════════
+-->
+
+<title></title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,12 +53,11 @@ background: #0a0a0a;
 min-height: 100vh;
 display: flex;
 justify-content: center;
-padding: 40px 20px;
+padding: 20px 15px;
 position: relative;
 overflow-x: hidden;
 }
 
-/* Fond animé avec dégradé et formes */
 body::before {
 content: '';
 position: fixed;
@@ -46,7 +79,6 @@ z-index: 0;
 100% { transform: rotate(360deg); }
 }
 
-/* Particules flottantes */
 .particle {
 position: fixed;
 width: 3px;
@@ -93,7 +125,7 @@ transform: translateY(0);
 }
 
 .profile {
-margin-bottom: 40px;
+margin-bottom: 30px;
 animation: slideDown 0.8s ease-out;
 }
 
@@ -308,6 +340,21 @@ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 border-color: rgba(218, 165, 32, 0.5);
 }
 
+/* Meilleure interaction tactile mobile */
+@media (hover: none) and (pointer: coarse) {
+.link-button:hover {
+transform: none;
+}
+
+.link-button:active {
+transform: scale(0.97);
+}
+
+.contact-item:hover {
+transform: none;
+}
+}
+
 .link-button i {
 font-size: 24px;
 transition: all 0.3s ease;
@@ -365,14 +412,87 @@ box-shadow: 0 10px 40px rgba(218, 165, 32, 0.4);
 
 /* Responsive */
 @media (max-width: 768px) {
-h1 { font-size: 32px; }
-.job-title { font-size: 18px; }
-.avatar { width: 120px; height: 120px; }
+body {
+padding: 15px 12px;
+}
+
+.container {
+max-width: 100%;
+}
+
+h1 { 
+font-size: 28px;
+margin-bottom: 8px;
+}
+
+.job-title { 
+font-size: 16px;
+letter-spacing: 1.5px;
+}
+
+.avatar { 
+width: 110px;
+height: 110px;
+margin-bottom: 20px;
+}
+
+.contact-info {
+padding: 20px 15px;
+margin-top: 20px;
+gap: 12px;
+}
+
+.contact-item {
+font-size: 14px;
+gap: 10px;
+}
+
+.contact-item i {
+font-size: 18px;
+}
+
+.links {
+gap: 14px;
+}
+
+.link-button {
+padding: 16px 20px;
+font-size: 16px;
+gap: 12px;
+}
+
+.link-button i {
+font-size: 22px;
+}
+}
+
+/* Petits téléphones */
+@media (max-width: 400px) {
+h1 { 
+font-size: 24px;
+}
+
+.job-title { 
+font-size: 15px;
+}
+
+.avatar { 
+width: 100px;
+height: 100px;
+}
+
+.contact-item {
+font-size: 13px;
+}
+
+.link-button {
+padding: 14px 18px;
+font-size: 15px;
+}
 }
 </style>
 </head>
 <body>
-<!-- Particules -->
 <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
 <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
 <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
@@ -387,36 +507,50 @@ h1 { font-size: 32px; }
 <div class="profile">
 <div class="avatar">
 <div class="avatar-inner">
-                <img src="https://raw.githubusercontent.com/luboys1/malik-bessevent/main/main%20/avatar.png" alt="Photo de Malik">
+<img id="avatarImage" src="" alt="Photo de profil">
 </div>
 </div>
-<h1>Malik</h1>
-<p class="job-title">DJ</p>
+<h1 id="nomPersonne"></h1>
+<p class="job-title" id="metierPersonne"></p>
 <div class="contact-info">
 <div class="contact-item">
 <i class="fas fa-envelope"></i>
-<span>malik@bess-event.fr</span>
+<span id="emailPersonne"></span>
 </div>
 <div class="contact-item">
 <i class="fas fa-phone"></i>
-<span>06 65 19 56 96</span>
+<span id="telephonePersonne"></span>
 </div>
 </div>
 </div>
 <div class="links">
-<a href="https://www.linkedin.com/in/malik-mechta-a01727296/" class="link-button linkedin" target="_blank">
+<a id="linkedinLink" href="" class="link-button linkedin" target="_blank">
 <i class="fab fa-linkedin-in"></i>
 <span>LinkedIn</span>
 </a>
-<a href="https://www.instagram.com/malik_m.u.s.i.k/" class="link-button instagram" target="_blank">
+<a id="instagramLink" href="" class="link-button instagram" target="_blank">
 <i class="fab fa-instagram"></i>
 <span>Instagram</span>
 </a>
-<a href="https://www.bess-event.fr" class="link-button website" target="_blank">
+<a id="siteWebLink" href="" class="link-button website" target="_blank">
 <i class="fas fa-globe"></i>
 <span>Site Web</span>
 </a>
 </div>
 </div>
+
+<script>
+// Injection automatique des variables
+document.title = CONFIG.titreOnglet;
+document.getElementById('nomPersonne').textContent = CONFIG.nom;
+document.getElementById('metierPersonne').textContent = CONFIG.metier;
+document.getElementById('emailPersonne').textContent = CONFIG.email;
+document.getElementById('telephonePersonne').textContent = CONFIG.telephone;
+document.getElementById('avatarImage').src = CONFIG.imageUrl;
+document.getElementById('avatarImage').alt = 'Photo de ' + CONFIG.nom;
+document.getElementById('linkedinLink').href = CONFIG.linkedinUrl;
+document.getElementById('instagramLink').href = CONFIG.instagramUrl;
+document.getElementById('siteWebLink').href = CONFIG.siteWebUrl;
+</script>
 </body>
 </html>
