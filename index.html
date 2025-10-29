@@ -259,6 +259,8 @@ font-size: 15px;
 transition: all 0.3s ease;
 position: relative;
 z-index: 1;
+text-decoration: none;
+cursor: pointer;
 }
 
 .contact-item i {
@@ -536,7 +538,7 @@ font-size: 15px;
 <i class="fas fa-globe"></i>
 <span>Site Web</span>
 </a>
-</div>
+    </div>
 </div>
 
 <script>
@@ -551,6 +553,10 @@ document.getElementById('avatarImage').alt = 'Photo de ' + CONFIG.nom;
 document.getElementById('linkedinLink').href = CONFIG.linkedinUrl;
 document.getElementById('instagramLink').href = CONFIG.instagramUrl;
 document.getElementById('siteWebLink').href = CONFIG.siteWebUrl;
+
+// Liens cliquables pour email et téléphone
+document.getElementById('emailLink').href = 'mailto:' + CONFIG.email;
+document.getElementById('phoneLink').href = 'tel:' + CONFIG.telephone.replace(/\s/g, '');
 </script>
 </body>
 </html>
